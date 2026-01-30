@@ -113,13 +113,28 @@ st.header("7. Sample Size & Test Design")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.metric("Total Users", "588,101")
+    st.markdown("""
+    <div class="metric-card">
+        <div class="metric-label">Total Users</div>
+        <div class="metric-value">588,101</div>
+    </div>
+    """, unsafe_allow_html=True)
     
 with col2:
-    st.metric("Ad Group", "564,577 (96%)")
+    st.markdown("""
+    <div class="metric-card">
+        <div class="metric-label">Ad Group</div>
+        <div class="metric-value">564,577 <span style="font-size: 0.5em; opacity: 0.9;">(96%)</span></div>
+    </div>
+    """, unsafe_allow_html=True)
     
 with col3:
-    st.metric("PSA Group", "23,524 (4%)")
+    st.markdown("""
+    <div class="metric-card">
+        <div class="metric-label">PSA Group</div>
+        <div class="metric-value">23,524 <span style="font-size: 0.5em; opacity: 0.9;">(4%)</span></div>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.markdown("""
 <div class="info-box">

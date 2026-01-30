@@ -28,10 +28,38 @@ data = load_data()
 st.header("Dataset Summary")
 
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("Total Records", f"{len(data):,}")
-col2.metric("Features", len(data.columns))
-col3.metric("Missing Values", data.isnull().sum().sum())
-col4.metric("Duplicate Rows", data.duplicated().sum())
+
+with col1:
+    st.markdown(f"""
+    <div class="metric-card">
+        <div class="metric-label">Total Records</div>
+        <div class="metric-value">{len(data):,}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown(f"""
+    <div class="metric-card">
+        <div class="metric-label">Features</div>
+        <div class="metric-value">{len(data.columns)}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col3:
+    st.markdown(f"""
+    <div class="metric-card">
+        <div class="metric-label">Missing Values</div>
+        <div class="metric-value">{data.isnull().sum().sum()}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col4:
+    st.markdown(f"""
+    <div class="metric-card">
+        <div class="metric-label">Duplicate Rows</div>
+        <div class="metric-value">{data.duplicated().sum()}</div>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.markdown("---")
 
