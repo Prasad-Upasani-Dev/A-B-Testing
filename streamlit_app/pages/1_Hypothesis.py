@@ -3,7 +3,15 @@ Hypothesis Form Page
 """
 import streamlit as st
 import sys
-sys.path.append('../utils')
+import os
+
+# Add utils to path for both local and cloud deployment
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+utils_dir = os.path.join(parent_dir, 'utils')
+if utils_dir not in sys.path:
+    sys.path.insert(0, utils_dir)
+
 from helpers import apply_custom_css
 
 st.set_page_config(page_title="Hypothesis", page_icon="🔬", layout="wide")

@@ -3,13 +3,19 @@ Helper functions for Streamlit app
 """
 import pandas as pd
 import numpy as np
+import os
 from scipy import stats
 from statsmodels.stats.proportion import proportions_ztest, proportion_confint
 
 # Cache data loading for performance
 def load_data():
     """Load and cache the marketing data"""
-    return pd.read_csv('../Data/marketing_AB.csv', index_col=0)
+    # Get the path relative to this file (works locally and on cloud)
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    streamlit_app_dir = os.path.dirname(current_dir)
+    project_root = os.path.dirname(streamlit_app_dir)
+    data_path = os.path.join(project_root, 'Data', 'marketing_AB.csv')
+    return pd.read_csv(data_path, index_col=0)
 
 def calculate_metrics(data):
     """Calculate all key metrics for the analysis"""

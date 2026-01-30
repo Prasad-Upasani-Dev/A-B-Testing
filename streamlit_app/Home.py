@@ -3,7 +3,14 @@ A/B Testing Marketing Analysis - Home Page
 """
 import streamlit as st
 import sys
-sys.path.append('utils')
+import os
+
+# Add utils to path for both local and cloud deployment
+current_dir = os.path.dirname(os.path.abspath(__file__))
+utils_dir = os.path.join(current_dir, 'utils')
+if utils_dir not in sys.path:
+    sys.path.insert(0, utils_dir)
+
 from helpers import apply_custom_css
 
 # Page configuration
