@@ -231,7 +231,7 @@ AB_Testing_Marketing/
 **Prasad Upasani**
 
 - GitHub: [@Prasad-Upasani-Dev](https://github.com/Prasad-Upasani-Dev)
-- LinkedIn: [Connect on LinkedIn](https://linkedin.com/in/yourprofile)
+- LinkedIn: [Connect on LinkedIn](https://www.linkedin.com/in/prasad-upasani/)
 
 ---
 
