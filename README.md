@@ -4,11 +4,16 @@
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
 ![Status](https://img.shields.io/badge/Status-Complete-success)
 
-This repository contains an end-to-end A/B test analysis of a marketing campaign. The goal is to measure whether showing **product ads** increases conversion compared to showing a **PSA** (control).
+End-to-end A/B test analysis to measure whether showing **product ads** increases conversion compared to showing a **PSA** (control).
 
-## Key result (headline)
+## Problem
 
-Ads outperform PSA on conversion rate, with a statistically significant difference.
+Marketing teams run A/B tests to answer:
+
+- Would the campaign be successful?
+- If successful, how much of the success is attributable to ads (vs. PSA)?
+
+## Headline result
 
 | Metric | Ad | PSA |
 |---|---:|---:|
@@ -20,37 +25,58 @@ Ads outperform PSA on conversion rate, with a statistically significant differen
 | p-value (two-proportion z-test) | < 0.0001 |  |
 | Effect size (Cohen's h) | 0.1847 |  |
 
-## What’s inside
+Interpretation: ads increase conversions with a statistically significant and practically meaningful lift, and the notebook further checks whether this advantage is consistent across days/hours and ad frequency.
+
+## Contents
 
 - `data_exploration.ipynb`: main notebook (EDA, visualizations, statistical testing, and conclusions)
 - `Data/marketing_AB.csv`: dataset
 - `Data/readme.md`: dataset description
 - `requirements.txt`: Python dependencies
 
-## How to run
+## Reproduce locally
 
 ```bash
 git clone https://github.com/Prasad-Upasani-Dev/A-B-Testing.git
 cd A-B-Testing
 
 python -m venv abtest-env
-abtest-env\Scripts\activate
+abtest-env\Scripts\activate     # Windows
+# source abtest-env/bin/activate # macOS/Linux
 
 pip install -r requirements.txt
 jupyter notebook data_exploration.ipynb
 ```
 
-## Notebook coverage (high level)
+## What the notebook covers
 
 - Group allocation check (Ad vs PSA)
-- Conversion counts and conversion rate comparison (interactive Plotly)
+- Conversion comparison (counts + rates, interactive Plotly)
 - Dose-response analysis (ad frequency vs conversion)
 - Temporal consistency (Ad vs PSA by day-of-week and hour-of-day)
 - Hypothesis testing:
-  - Two-proportion z-test (one-sided: \(p_{ad} > p_{psa}\))
+  - Two-proportion z-test (one-sided: H1: p_ad > p_psa)
   - Chi-square test
   - Confidence intervals (group rates + absolute lift)
   - Effect size (Cohen's h)
+
+## Repo structure
+
+```
+A-B-Testing/
+├── data_exploration.ipynb
+├── requirements.txt
+├── README.md
+├── .gitignore
+└── Data/
+    ├── marketing_AB.csv
+    └── readme.md
+```
+
+## Notes
+
+- **Interactive charts**: the notebook uses Plotly; run it locally in Jupyter for full interactivity.
+- **Large file**: `Data/marketing_AB.csv` is included in the repo, so the first clone may take a bit longer.
 
 ## Author
 
