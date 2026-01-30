@@ -53,14 +53,41 @@ This dataset contains ~588k users. The analysis is performed on the provided sna
 
 Interpretation: ads increase conversions with a statistically significant lift. The notebook also checks whether this advantage is consistent across days/hours and ad frequency.
 
+## Interactive Streamlit App
+
+Explore the analysis through an interactive web application with professional visualizations and clean navigation.
+
+**Run the app locally:**
+
+```bash
+cd streamlit_app
+streamlit run Home.py
+```
+
+**App features:**
+- **Home**: Project overview with quick metrics
+- **Hypothesis**: Complete A/B test hypothesis form
+- **Data Overview**: Dataset exploration with interactive charts
+- **Analysis**: Conversion, temporal consistency, and dose-response visualizations
+- **Statistical Tests**: Z-test, confidence intervals, chi-square, and effect size
+- **Decision**: Final recommendation with business impact analysis
+
+All visualizations use Plotly for interactivity with attractive color schemes and minimal text.
+
 ## Repository contents
 
 - `data_exploration.ipynb`: main notebook (EDA, visualizations, statistical testing, and conclusions)
+- `streamlit_app/`: interactive web application
+  - `Home.py`: landing page
+  - `pages/`: multi-page app structure
+  - `utils/helpers.py`: data loading and calculations
 - `Data/marketing_AB.csv`: dataset
 - `Data/readme.md`: dataset description
 - `requirements.txt`: Python dependencies
 
 ## Quickstart
+
+### Option 1: Jupyter Notebook
 
 ```bash
 git clone https://github.com/Prasad-Upasani-Dev/A-B-Testing.git
@@ -71,8 +98,31 @@ abtest-env\Scripts\activate     # Windows
 # source abtest-env/bin/activate # macOS/Linux
 
 pip install -r requirements.txt
+
+# Run Jupyter notebook
 jupyter notebook data_exploration.ipynb
+
+# OR run Streamlit app
+cd streamlit_app
+streamlit run Home.py
 ```
+
+### Option 2: Streamlit Web App (Quick Start)
+
+```bash
+git clone https://github.com/Prasad-Upasani-Dev/A-B-Testing.git
+cd A-B-Testing
+
+python -m venv abtest-env
+abtest-env\Scripts\activate     # Windows
+# source abtest-env/bin/activate # macOS/Linux
+
+pip install -r requirements.txt
+cd streamlit_app
+streamlit run Home.py
+```
+
+The app will open automatically in your browser at `http://localhost:8501`
 
 ## What you’ll find in the notebook
 
@@ -101,19 +151,31 @@ From `Data/readme.md`:
 
 ```
 A-B-Testing/
-├── data_exploration.ipynb
-├── requirements.txt
+├── data_exploration.ipynb       # Main analysis notebook
+├── streamlit_app/               # Interactive web app
+│   ├── Home.py                  # Landing page
+│   ├── pages/
+│   │   ├── 1_Hypothesis.py      # Test design & hypotheses
+│   │   ├── 2_Data_Overview.py   # Dataset exploration
+│   │   ├── 3_Analysis.py        # Interactive visualizations
+│   │   ├── 4_Statistical_Tests.py  # Hypothesis testing
+│   │   └── 5_Decision.py        # Final recommendations
+│   └── utils/
+│       └── helpers.py           # Data loading & calculations
+├── Data/
+│   ├── marketing_AB.csv         # Dataset (588k records)
+│   └── readme.md                # Data dictionary
+├── requirements.txt             # Python dependencies
 ├── README.md
-├── .gitignore
-└── Data/
-    ├── marketing_AB.csv
-    └── readme.md
+└── .gitignore
 ```
 
 ## Notes
 
-- Interactive charts: the notebook uses Plotly; run locally in Jupyter for full interactivity.
-- Large file: `Data/marketing_AB.csv` is included in the repo, so the first clone may take longer.
+- **Jupyter Notebook**: Contains comprehensive analysis with Plotly visualizations. Run locally for full interactivity.
+- **Streamlit App**: Professional web interface for exploring the analysis. Best viewed in a browser with the app running locally.
+- **Large file**: `Data/marketing_AB.csv` (588k records) is included in the repo, so the first clone may take longer.
+- **Python version**: Requires Python 3.8 or higher.
 
 ## Contributing
 
