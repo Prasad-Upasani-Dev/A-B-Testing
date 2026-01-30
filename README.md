@@ -6,12 +6,38 @@
 
 End-to-end A/B test analysis to measure whether showing **product ads** increases conversion compared to showing a **PSA** (control).
 
-## Problem
+## A/B Testing Hypothesis Form
 
-Marketing teams run A/B tests to answer:
+### 1) The concept
 
-- Would the campaign be successful?
-- If successful, how much of the success is attributable to ads (vs. PSA)?
+Marketing teams run randomized experiments to quantify whether ads drive incremental conversions. In this project, most users see **ads** (treatment) while a smaller group sees a **PSA** (control) in the same placement.
+
+### 2) Research question
+
+Do users who see ads convert at a higher rate than users who see PSA?
+
+### 3) What we want to A/B test
+
+- **Treatment**: product advertisement exposure
+- **Control**: PSA exposure
+
+### 4) Success metric
+
+- **Primary metric**: conversion rate (percentage of users who purchased)
+- **Unit of analysis**: user
+
+### 5) Hypotheses
+
+- **H0 (null)**: \(p_{ad} = p_{psa}\)
+- **H1 (one-sided)**: \(p_{ad} > p_{psa}\)
+
+### 6) Expected outcome
+
+We expect the ad group to have a higher conversion rate than the PSA group (positive lift).
+
+### 7) Sample size and duration
+
+This dataset contains ~588k users. The analysis is performed on the provided snapshot (no explicit campaign duration is included in the dataset).
 
 ## Headline result
 
@@ -25,16 +51,16 @@ Marketing teams run A/B tests to answer:
 | p-value (two-proportion z-test) | < 0.0001 |  |
 | Effect size (Cohen's h) | 0.1847 |  |
 
-Interpretation: ads increase conversions with a statistically significant and practically meaningful lift, and the notebook further checks whether this advantage is consistent across days/hours and ad frequency.
+Interpretation: ads increase conversions with a statistically significant lift. The notebook also checks whether this advantage is consistent across days/hours and ad frequency.
 
-## Contents
+## Repository contents
 
 - `data_exploration.ipynb`: main notebook (EDA, visualizations, statistical testing, and conclusions)
 - `Data/marketing_AB.csv`: dataset
 - `Data/readme.md`: dataset description
 - `requirements.txt`: Python dependencies
 
-## Reproduce locally
+## Quickstart
 
 ```bash
 git clone https://github.com/Prasad-Upasani-Dev/A-B-Testing.git
@@ -48,17 +74,28 @@ pip install -r requirements.txt
 jupyter notebook data_exploration.ipynb
 ```
 
-## What the notebook covers
+## What you’ll find in the notebook
 
 - Group allocation check (Ad vs PSA)
 - Conversion comparison (counts + rates, interactive Plotly)
 - Dose-response analysis (ad frequency vs conversion)
 - Temporal consistency (Ad vs PSA by day-of-week and hour-of-day)
-- Hypothesis testing:
-  - Two-proportion z-test (one-sided: H1: p_ad > p_psa)
+- Statistical testing:
+  - Two-proportion z-test (one-sided)
   - Chi-square test
   - Confidence intervals (group rates + absolute lift)
   - Effect size (Cohen's h)
+
+## Dataset
+
+From `Data/readme.md`:
+
+- `user id`: unique user identifier
+- `test group`: `ad` or `psa`
+- `converted`: purchase indicator
+- `total ads`: number of ads shown to a user
+- `most ads day`: day of week with highest exposure
+- `most ads hour`: hour of day with highest exposure
 
 ## Repo structure
 
@@ -75,8 +112,12 @@ A-B-Testing/
 
 ## Notes
 
-- **Interactive charts**: the notebook uses Plotly; run it locally in Jupyter for full interactivity.
-- **Large file**: `Data/marketing_AB.csv` is included in the repo, so the first clone may take a bit longer.
+- Interactive charts: the notebook uses Plotly; run locally in Jupyter for full interactivity.
+- Large file: `Data/marketing_AB.csv` is included in the repo, so the first clone may take longer.
+
+## Contributing
+
+If you’d like to extend the analysis or improve the visuals, feel free to open an issue or submit a pull request.
 
 ## Author
 
