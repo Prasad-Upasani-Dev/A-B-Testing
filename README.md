@@ -2,7 +2,6 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Complete-success)
 
 A comprehensive statistical analysis of marketing campaign effectiveness using A/B testing to determine whether product advertisements significantly increase customer conversions compared to Public Service Announcements (PSA).
@@ -19,7 +18,6 @@ A comprehensive statistical analysis of marketing campaign effectiveness using A
 - [Analysis Structure](#analysis-structure)
 - [Statistical Tests](#statistical-tests)
 - [Conclusions](#conclusions)
-- [License](#license)
 
 ## Overview
 
@@ -225,13 +223,8 @@ AB_Testing_Marketing/
 ├── data_exploration.ipynb
 ├── requirements.txt
 ├── README.md
-├── LICENSE
 └── .gitignore
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Author
 
