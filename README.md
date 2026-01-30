@@ -2,9 +2,12 @@
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
+![Streamlit](https://img.shields.io/badge/Streamlit-Live-red)
 ![Status](https://img.shields.io/badge/Status-Complete-success)
 
 End-to-end A/B test analysis to measure whether showing **product ads** increases conversion compared to showing a **PSA** (control).
+
+**Live Demo:** https://a-b-testing-marketing.streamlit.app/
 
 ## A/B Testing Hypothesis Form
 
@@ -54,6 +57,8 @@ This dataset contains ~588k users. The analysis is performed on the provided sna
 Interpretation: ads increase conversions with a statistically significant lift. The notebook also checks whether this advantage is consistent across days/hours and ad frequency.
 
 ## Interactive Streamlit App
+
+**Live Demo:** https://a-b-testing-marketing.streamlit.app/
 
 Explore the analysis through an interactive web application with professional visualizations and clean navigation.
 
